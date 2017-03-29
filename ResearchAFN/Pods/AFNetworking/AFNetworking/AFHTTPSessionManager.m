@@ -47,6 +47,7 @@
 @implementation AFHTTPSessionManager
 @dynamic responseSerializer;
 
+#pragma mark - 初始化
 + (instancetype)manager {
     return [[[self class] alloc] initWithBaseURL:nil];
 }
@@ -84,31 +85,34 @@
     return self;
 }
 
-#pragma mark -
-
+#pragma mark - 重写set方法
 - (void)setRequestSerializer:(AFHTTPRequestSerializer <AFURLRequestSerialization> *)requestSerializer {
     NSParameterAssert(requestSerializer);
-
     _requestSerializer = requestSerializer;
 }
 
 - (void)setResponseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer {
     NSParameterAssert(responseSerializer);
-
     [super setResponseSerializer:responseSerializer];
 }
 
-#pragma mark -
 
+
+
+
+
+
+#pragma mark - GET请求
+//❎
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id)parameters
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-
     return [self GET:URLString parameters:parameters progress:nil success:success failure:failure];
 }
 
+//✅
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id)parameters
                      progress:(void (^)(NSProgress * _Nonnull))downloadProgress
@@ -125,26 +129,34 @@
                                                           failure:failure];
 
     [dataTask resume];
-
     return dataTask;
 }
 
+
+#pragma mark - HEAD请求
+//✅
 - (NSURLSessionDataTask *)HEAD:(NSString *)URLString
                     parameters:(id)parameters
                        success:(void (^)(NSURLSessionDataTask *task))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"HEAD" URLString:URLString parameters:parameters uploadProgress:nil downloadProgress:nil success:^(NSURLSessionDataTask *task, __unused id responseObject) {
-        if (success) {
-            success(task);
-        }
-    } failure:failure];
+    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"HEAD"
+                                                        URLString:URLString
+                                                       parameters:parameters
+                                                   uploadProgress:nil
+                                                 downloadProgress:nil
+                                                          success:^(NSURLSessionDataTask *task, __unused id responseObject){
+                                                              if (success) {
+                                                                  success(task);
+                                                              }
+                                                          }
+                                                          failure:failure];
 
     [dataTask resume];
-
     return dataTask;
 }
-
+#pragma mark - POST请求
+//❎
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
@@ -153,19 +165,25 @@
     return [self POST:URLString parameters:parameters progress:nil success:success failure:failure];
 }
 
+//✅
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
                       progress:(void (^)(NSProgress * _Nonnull))uploadProgress
                        success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
                        failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
 {
-    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"POST" URLString:URLString parameters:parameters uploadProgress:uploadProgress downloadProgress:nil success:success failure:failure];
+    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"POST"
+                                                        URLString:URLString
+                                                       parameters:parameters
+                                                   uploadProgress:uploadProgress
+                                                 downloadProgress:nil
+                                                          success:success
+                                                          failure:failure];
 
     [dataTask resume];
-
     return dataTask;
 }
-
+//❎
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(nullable id)parameters
      constructingBodyWithBlock:(nullable void (^)(id<AFMultipartFormData> _Nonnull))block
@@ -174,7 +192,7 @@
 {
     return [self POST:URLString parameters:parameters constructingBodyWithBlock:block progress:nil success:success failure:failure];
 }
-
+//✅
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
      constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
@@ -197,7 +215,9 @@
         return nil;
     }
 
-    __block NSURLSessionDataTask *task = [self uploadTaskWithStreamedRequest:request progress:uploadProgress completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
+    __block NSURLSessionDataTask *task = [self uploadTaskWithStreamedRequest:request
+                                                                    progress:uploadProgress
+                                                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
         if (error) {
             if (failure) {
                 failure(task, error);
@@ -214,62 +234,98 @@
     return task;
 }
 
+
+#pragma mark - PUT请求
 - (NSURLSessionDataTask *)PUT:(NSString *)URLString
                    parameters:(id)parameters
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PUT" URLString:URLString parameters:parameters uploadProgress:nil downloadProgress:nil success:success failure:failure];
+    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PUT"
+                                                        URLString:URLString
+                                                       parameters:parameters
+                                                   uploadProgress:nil
+                                                 downloadProgress:nil
+                                                          success:success
+                                                          failure:failure];
 
     [dataTask resume];
 
     return dataTask;
 }
 
+
+#pragma mark - PATCH请求
 - (NSURLSessionDataTask *)PATCH:(NSString *)URLString
                      parameters:(id)parameters
                         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PATCH" URLString:URLString parameters:parameters uploadProgress:nil downloadProgress:nil success:success failure:failure];
+    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PATCH"
+                                                        URLString:URLString
+                                                       parameters:parameters
+                                                   uploadProgress:nil
+                                                 downloadProgress:nil
+                                                          success:success
+                                                          failure:failure];
 
     [dataTask resume];
 
     return dataTask;
 }
 
+#pragma mark - DELETE请求
 - (NSURLSessionDataTask *)DELETE:(NSString *)URLString
                       parameters:(id)parameters
                          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                          failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"DELETE" URLString:URLString parameters:parameters uploadProgress:nil downloadProgress:nil success:success failure:failure];
-
+    NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"DELETE"
+                                                        URLString:URLString
+                                                       parameters:parameters
+                                                   uploadProgress:nil
+                                                 downloadProgress:nil
+                                                          success:success
+                                                          failure:failure];
     [dataTask resume];
 
     return dataTask;
 }
 
-- (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
-                                       URLString:(NSString *)URLString
-                                      parameters:(id)parameters
-                                  uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress
-                                downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
-                                         success:(void (^)(NSURLSessionDataTask *, id))success
-                                         failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
+
+
+/*---------------------------------*/
+/*      核心方法-网络请求             */
+/*---------------------------------*/
+#pragma mark - 核心请求方法
+- (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method                                                     //GET or POST ??
+                                       URLString:(NSString *)URLString                                                  //请求地址
+                                      parameters:(id)parameters                                                         //请求参数
+                                  uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress         //上传进度
+                                downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress     //下载进度
+                                         success:(void (^)(NSURLSessionDataTask *, id))success                          //成功回调
+                                         failure:(void (^)(NSURLSessionDataTask *, NSError *))failure                   //失败回调
 {
+
+    //序列化错误信息
     NSError *serializationError = nil;
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&serializationError];
+    
+    //获取request
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
+                                                                   URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString]
+                                                                  parameters:parameters
+                                                                       error:&serializationError];
+    
+    //如果获取request失败
     if (serializationError) {
         if (failure) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wgnu"
-            dispatch_async(self.completionQueue ?: dispatch_get_main_queue(), ^{
-                failure(nil, serializationError);
+            dispatch_async(self.completionQueue ? : dispatch_get_main_queue(), ^{
+                failure(nil, serializationError);//执行block
             });
 #pragma clang diagnostic pop
         }
-
         return nil;
     }
 
@@ -278,28 +334,27 @@
                           uploadProgress:uploadProgress
                         downloadProgress:downloadProgress
                        completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
-        if (error) {
-            if (failure) {
-                failure(dataTask, error);
-            }
-        } else {
-            if (success) {
-                success(dataTask, responseObject);
-            }
-        }
+                           //如果错误
+                            if (error) {
+                                if (failure) {
+                                    failure(dataTask, error);//执行错误的block
+                                }
+                            } else {
+                                if (success) {
+                                    success(dataTask, responseObject);//执行成功的block
+                                }
+                            }
     }];
-
+    //返回
     return dataTask;
 }
 
-#pragma mark - NSObject
-
+#pragma mark - NSObject描述信息
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@: %p, baseURL: %@, session: %@, operationQueue: %@>", NSStringFromClass([self class]), self, [self.baseURL absoluteString], self.session, self.operationQueue];
 }
 
 #pragma mark - NSSecureCoding
-
 + (BOOL)supportsSecureCoding {
     return YES;
 }
@@ -348,7 +403,6 @@
 }
 
 #pragma mark - NSCopying
-
 - (instancetype)copyWithZone:(NSZone *)zone {
     AFHTTPSessionManager *HTTPClient = [[[self class] allocWithZone:zone] initWithBaseURL:self.baseURL sessionConfiguration:self.session.configuration];
 

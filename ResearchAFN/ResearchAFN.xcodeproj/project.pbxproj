@@ -54,6 +54,7 @@
 		0428650F1E84BA5A00E500F5 /* ResearchAFNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResearchAFNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		042865131E84BA5A00E500F5 /* ResearchAFNUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResearchAFNUITests.m; sourceTree = "<group>"; };
 		042865151E84BA5A00E500F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042865211E84BC9800E500F5 /* AboutTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutTask.h; sourceTree = "<group>"; };
 		1863206492F1147E842B5F55 /* Pods-ResearchAFN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResearchAFN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResearchAFN/Pods-ResearchAFN.debug.xcconfig"; sourceTree = "<group>"; };
 		36489E912EE3E8485373942A /* Pods-ResearchAFNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResearchAFNTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResearchAFNTests/Pods-ResearchAFNTests.release.xcconfig"; sourceTree = "<group>"; };
 		652ACB4555047E06B0156BB9 /* Pods-ResearchAFNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResearchAFNUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResearchAFNUITests/Pods-ResearchAFNUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 				042864F21E84BA5900E500F5 /* AppDelegate.m */,
 				042864F41E84BA5900E500F5 /* ViewController.h */,
 				042864F51E84BA5900E500F5 /* ViewController.m */,
+				042865211E84BC9800E500F5 /* AboutTask.h */,
 				042864F71E84BA5900E500F5 /* Main.storyboard */,
 				042864FA1E84BA5900E500F5 /* Assets.xcassets */,
 				042864FC1E84BA5900E500F5 /* LaunchScreen.storyboard */,
@@ -709,6 +711,7 @@
 				0428651A1E84BA5A00E500F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0428651B1E84BA5A00E500F5 /* Build configuration list for PBXNativeTarget "ResearchAFNTests" */ = {
 			isa = XCConfigurationList;
@@ -717,6 +720,7 @@
 				0428651D1E84BA5A00E500F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0428651E1E84BA5A00E500F5 /* Build configuration list for PBXNativeTarget "ResearchAFNUITests" */ = {
 			isa = XCConfigurationList;
@@ -725,6 +729,7 @@
 				042865201E84BA5A00E500F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

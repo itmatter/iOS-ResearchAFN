@@ -22,20 +22,20 @@
 
 #import <Foundation/Foundation.h>
 #import <Availability.h>
-#import <TargetConditionals.h>
+#import <TargetConditionals.h>      //目标文件
 
 #ifndef _AFNETWORKING_
     #define _AFNETWORKING_
 
-    #import "AFURLRequestSerialization.h"
-    #import "AFURLResponseSerialization.h"
-    #import "AFSecurityPolicy.h"
+    #import "AFURLRequestSerialization.h"       //请求序列化
+    #import "AFURLResponseSerialization.h"      //响应序列化
+    #import "AFSecurityPolicy.h"                //证书校验策略
 
 #if !TARGET_OS_WATCH
-    #import "AFNetworkReachabilityManager.h"
+    #import "AFNetworkReachabilityManager.h"    //网络提醒
 #endif
 
-    #import "AFURLSessionManager.h"
-    #import "AFHTTPSessionManager.h"
+    #import "AFURLSessionManager.h"             //父类
+    #import "AFHTTPSessionManager.h"            //子类  
 
 #endif /* _AFNETWORKING_ */

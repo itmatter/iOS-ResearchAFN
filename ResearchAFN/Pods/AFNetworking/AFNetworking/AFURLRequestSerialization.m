@@ -188,9 +188,9 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 
 @interface AFHTTPRequestSerializer ()
 @property (readwrite, nonatomic, strong) NSMutableSet *mutableObservedChangedKeyPaths;
-@property (readwrite, nonatomic, strong) NSMutableDictionary *mutableHTTPRequestHeaders;
-@property (readwrite, nonatomic, assign) AFHTTPRequestQueryStringSerializationStyle queryStringSerializationStyle;
-@property (readwrite, nonatomic, copy) AFQueryStringSerializationBlock queryStringSerialization;
+@property (readwrite, nonatomic, strong) NSMutableDictionary *mutableHTTPRequestHeaders;                            //头部请求信息(键值对)
+@property (readwrite, nonatomic, assign) AFHTTPRequestQueryStringSerializationStyle queryStringSerializationStyle;  //查询序列化类型
+@property (readwrite, nonatomic, copy) AFQueryStringSerializationBlock queryStringSerialization;                    //查询
 @end
 
 @implementation AFHTTPRequestSerializer
@@ -207,7 +207,7 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 
     self.stringEncoding = NSUTF8StringEncoding;
 
-    self.mutableHTTPRequestHeaders = [NSMutableDictionary dictionary];
+    self.mutableHTTPRequestHeaders = [NSMutableDictionary dictionary];  //头部请求信息(键值对)
 
     // Accept-Language HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
     NSMutableArray *acceptLanguagesComponents = [NSMutableArray array];
@@ -305,19 +305,21 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 
 #pragma mark -
 
+//重写Get方法
 - (NSDictionary *)HTTPRequestHeaders {
     return [NSDictionary dictionaryWithDictionary:self.mutableHTTPRequestHeaders];
 }
 
-- (void)setValue:(NSString *)value
-forHTTPHeaderField:(NSString *)field
-{
+//设置请求头信息
+- (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field {
 	[self.mutableHTTPRequestHeaders setValue:value forKey:field];
 }
 
+//获取请求头信息
 - (NSString *)valueForHTTPHeaderField:(NSString *)field {
     return [self.mutableHTTPRequestHeaders valueForKey:field];
 }
+
 
 - (void)setAuthorizationHeaderFieldWithUsername:(NSString *)username
                                        password:(NSString *)password
@@ -349,13 +351,15 @@ forHTTPHeaderField:(NSString *)field
                                 parameters:(id)parameters
                                      error:(NSError *__autoreleasing *)error
 {
+    
+    
     NSParameterAssert(method);
     NSParameterAssert(URLString);
 
     NSURL *url = [NSURL URLWithString:URLString];
 
     NSParameterAssert(url);
-
+    
     NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc] initWithURL:url];
     mutableRequest.HTTPMethod = method;
 
@@ -364,7 +368,8 @@ forHTTPHeaderField:(NSString *)field
             [mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];
         }
     }
-
+    
+    //调用方法
     mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
 
 	return mutableRequest;
@@ -471,6 +476,7 @@ forHTTPHeaderField:(NSString *)field
 
     NSMutableURLRequest *mutableRequest = [request mutableCopy];
 
+    //设置请求头信息(各种键值对)
     [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
         if (![request valueForHTTPHeaderField:field]) {
             [mutableRequest setValue:value forHTTPHeaderField:field];
@@ -478,6 +484,8 @@ forHTTPHeaderField:(NSString *)field
     }];
 
     NSString *query = nil;
+    
+    //如果参数与的情况下
     if (parameters) {
         if (self.queryStringSerialization) {
             NSError *serializationError;
