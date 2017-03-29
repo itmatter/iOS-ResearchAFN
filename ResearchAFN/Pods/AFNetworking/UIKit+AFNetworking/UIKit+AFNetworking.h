@@ -27,11 +27,11 @@
     #define _UIKIT_AFNETWORKING_
 
 #if TARGET_OS_IOS
-    #import "AFAutoPurgingImageCache.h"
-    #import "AFImageDownloader.h"
-    #import "AFNetworkActivityIndicatorManager.h"
-    #import "UIRefreshControl+AFNetworking.h"
-    #import "UIWebView+AFNetworking.h"
+    #import "AFAutoPurgingImageCache.h"                 //自动清除图片缓存
+    #import "AFImageDownloader.h"                       //图片下载
+    #import "AFNetworkActivityIndicatorManager.h"       //活动指示器
+    #import "UIRefreshControl+AFNetworking.h"           //刷新控制器
+    #import "UIWebView+AFNetworking.h"                  //WebView
 #endif
 
     #import "UIActivityIndicatorView+AFNetworking.h"

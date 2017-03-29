@@ -32,7 +32,7 @@
     #import "AFSecurityPolicy.h"                //安全策略(关于证书)
 
 #if !TARGET_OS_WATCH
-    #import "AFNetworkReachabilityManager.h"    //网络提醒
+    #import "AFNetworkReachabilityManager.h"    //网络监听
 #endif
 
     #import "AFURLSessionManager.h"             //父类

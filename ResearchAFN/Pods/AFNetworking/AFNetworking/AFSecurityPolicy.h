@@ -88,13 +88,6 @@ NS_ASSUME_NONNULL_END
 
 
 /*
- 4.SSL Pinning
- 
- SSL Pinning
  SSL Pinning 即证书绑定，客户端直接保存服务端证书，建立HTTPS连接时会校验服务端返回证书和客户端证书是否一致，一致则不再去信任证书机构里验证。
- 
- 
- 
- 
  */
 
