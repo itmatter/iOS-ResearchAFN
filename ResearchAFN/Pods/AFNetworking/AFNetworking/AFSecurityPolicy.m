@@ -18,7 +18,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
+
 #import "AFSecurityPolicy.h"
 
 #import <AssertMacros.h>
@@ -155,18 +155,19 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
 
 @implementation AFSecurityPolicy
 
+//自动加载bundle中的证书
 + (NSSet *)certificatesInBundle:(NSBundle *)bundle {
     NSArray *paths = [bundle pathsForResourcesOfType:@"cer" inDirectory:@"."];
-
     NSMutableSet *certificates = [NSMutableSet setWithCapacity:[paths count]];
     for (NSString *path in paths) {
         NSData *certificateData = [NSData dataWithContentsOfFile:path];
         [certificates addObject:certificateData];
     }
-
     return [NSSet setWithSet:certificates];
 }
 
+//默认证书绑定
+//SSL Pinning其实就是证书绑定，一般浏览器的做法是信任可信根证书颁发机构颁发的证书，但在移动端【非浏览器的桌面应用亦如此】，应用只和少数的几个Server有交互，所以可以做得更极致点，直接就在应用内保留需要使用的具体Server的证书。对于iOS开发者而言，如果使用AFNetwoking作为网络库，那么要做到这点就很方便，直接证书作为资源打包进去就好，AFNetworking会自动加载。
 + (NSSet *)defaultPinnedCertificates {
     static NSSet *_defaultPinnedCertificates = nil;
     static dispatch_once_t onceToken;
@@ -177,13 +178,14 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
 
     return _defaultPinnedCertificates;
 }
-
+//默认安全策略
 + (instancetype)defaultPolicy {
     AFSecurityPolicy *securityPolicy = [[self alloc] init];
     securityPolicy.SSLPinningMode = AFSSLPinningModeNone;
 
     return securityPolicy;
 }
+
 
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode {
     return [self policyWithPinningMode:pinningMode withPinnedCertificates:[self defaultPinnedCertificates]];
@@ -209,6 +211,8 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     return self;
 }
 
+
+//重写set方法
 - (void)setPinnedCertificates:(NSSet *)pinnedCertificates {
     _pinnedCertificates = pinnedCertificates;
 
@@ -227,7 +231,7 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     }
 }
 
-#pragma mark -
+#pragma mark - 核心方法
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
                   forDomain:(NSString *)domain

@@ -89,7 +89,7 @@
 		43293B0DB5B16E9D2A660A7F42DE6A88 /* Pods-ResearchAFNUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResearchAFNUITests-frameworks.sh"; sourceTree = "<group>"; };
 		439B12C57642501D99D0602D61C99C5A /* Pods-ResearchAFN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResearchAFN.debug.xcconfig"; sourceTree = "<group>"; };
 		4852ABEFD7FFFAE072C5835CCDB22279 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		49BC71D93F93C874A91E273428CFFA3B /* libPods-ResearchAFNTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ResearchAFNTests.a"; path = "libPods-ResearchAFNTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49BC71D93F93C874A91E273428CFFA3B /* libPods-ResearchAFNTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ResearchAFNTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D925E789318555435D0DBEF9BEC8015 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		509D7CB5A03A8B4D846C32D0A4ABEAE0 /* Pods-ResearchAFNUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResearchAFNUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		51204DFB5BF601D556D71C3736263351 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		525066ED64B26EC45F9B2AD4D3B0D1B2 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		5C3076143126055C32B4622C7091B768 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		5C8A96F13FCA0C5C0D3C9C536E7E5DC4 /* Pods-ResearchAFN-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResearchAFN-frameworks.sh"; sourceTree = "<group>"; };
-		5D6A45B0362077BB6ED7AD98192E97D5 /* libPods-ResearchAFNUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ResearchAFNUITests.a"; path = "libPods-ResearchAFNUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D6A45B0362077BB6ED7AD98192E97D5 /* libPods-ResearchAFNUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ResearchAFNUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71104BAEDD2115BA6A8512AEC3051B23 /* Pods-ResearchAFN-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResearchAFN-acknowledgements.plist"; sourceTree = "<group>"; };
 		773DE7A37E882476446E3D8C9D83B85A /* Pods-ResearchAFNTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResearchAFNTests-frameworks.sh"; sourceTree = "<group>"; };
 		78C774AEA3474BF09AD285C28E701D5F /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
@@ -106,12 +106,12 @@
 		809E0EE6429DA2700D30D5F8F46F4100 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		829E6F8CF146336CA548D00DC6A667A7 /* Pods-ResearchAFNUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResearchAFNUITests-resources.sh"; sourceTree = "<group>"; };
 		849EA1ECBA38C81EE254F13CA65D2009 /* Pods-ResearchAFN-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResearchAFN-dummy.m"; sourceTree = "<group>"; };
-		86A725C22C49571FE02412CED50570A3 /* libPods-ResearchAFN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ResearchAFN.a"; path = "libPods-ResearchAFN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86A725C22C49571FE02412CED50570A3 /* libPods-ResearchAFN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ResearchAFN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8946DE00AC08571F0D4A4F985A8FA609 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		8B17FF80B117EDDFBD41C5C3B5C1D217 /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AFF2CC19E35B6A289DF5C325A6C2B4E7 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
-		B09773A6E688B27E56D392CD685A4C3B /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B09773A6E688B27E56D392CD685A4C3B /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B869E24A9FE1DFF48234652757C858A0 /* Pods-ResearchAFNTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResearchAFNTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA8F5D01A52BE3F4B5FE077F974608AE /* Pods-ResearchAFN-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResearchAFN-resources.sh"; sourceTree = "<group>"; };
 		BB73EBCCBBE5E20CC0C7278C7CE6B9D6 /* Pods-ResearchAFNUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResearchAFNUITests-dummy.m"; sourceTree = "<group>"; };
@@ -344,22 +344,21 @@
 				E71FC5436C29FCEB72394E7117726B8F /* AFNetworking.h */,
 				1C26585A924F80DB59965DD3B7AB0AD1 /* NSURLSession */,
 				0336952400392A094D9CF93F23FBA803 /* Reachability */,
-				E9A2D2E704D5128BD90065AA48D6522C /* Security */,
+				E9A2D2E704D5128BD90065AA48D6522C /* Security(安全策略) */,
 				118C018DD63A7C9B85C796B9D7927B72 /* Serialization */,
 				2C186AA24E2640F4BC841D3813B8BAE7 /* Support Files */,
 				64B71C384435C48FAA2EDD45AEDAF210 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		E9A2D2E704D5128BD90065AA48D6522C /* Security */ = {
+		E9A2D2E704D5128BD90065AA48D6522C /* Security(安全策略) */ = {
 			isa = PBXGroup;
 			children = (
 				0401DF9E61B17C3AE9FE93347CCD9E64 /* AFSecurityPolicy.h */,
 				3B8C2F3F38AC8B05D07C9BAACD044EAD /* AFSecurityPolicy.m */,
 			);
-			name = Security;
+			name = "Security(安全策略)";
 			sourceTree = "<group>";
 		};
 		ECC559538E61F88B8FF927269276AF28 /* Targets Support Files */ = {

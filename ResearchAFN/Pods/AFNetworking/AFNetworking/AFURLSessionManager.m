@@ -547,7 +547,7 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     //序列化
     self.responseSerializer = [AFJSONResponseSerializer serializer];
 
-    //安全协议
+    //安全策略
     self.securityPolicy = [AFSecurityPolicy defaultPolicy];
 
     

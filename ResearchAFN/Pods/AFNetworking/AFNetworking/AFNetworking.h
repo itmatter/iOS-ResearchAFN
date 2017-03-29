@@ -27,9 +27,9 @@
 #ifndef _AFNETWORKING_
     #define _AFNETWORKING_
 
-    #import "AFURLRequestSerialization.h"       //请求序列化
-    #import "AFURLResponseSerialization.h"      //响应序列化
-    #import "AFSecurityPolicy.h"                //证书校验策略
+    #import "AFURLRequestSerialization.h"       //请求
+    #import "AFURLResponseSerialization.h"      //响应
+    #import "AFSecurityPolicy.h"                //安全策略(关于证书)
 
 #if !TARGET_OS_WATCH
     #import "AFNetworkReachabilityManager.h"    //网络提醒
