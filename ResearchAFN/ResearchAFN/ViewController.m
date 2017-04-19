@@ -25,7 +25,10 @@
     NSLog(@"%@",[AFSecurityPolicy certificatesInBundle:[NSBundle bundleForClass:[self class]]]);
     
     
-    
+    UIButton *afnBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 200, 50)];
+    [afnBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:@"http://192.168.1.247:8080/img01.jpeg"]];
+    afnBtn.center = self.view.center;
+    [self.view addSubview:afnBtn];
     
     
     

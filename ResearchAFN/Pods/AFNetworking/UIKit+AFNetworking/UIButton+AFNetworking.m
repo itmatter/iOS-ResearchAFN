@@ -176,7 +176,6 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
                            }
                            [strongSelf af_setImageDownloadReceipt:nil forState:state];
                        }
-
                    }
                    failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
                        __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -187,7 +186,6 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
                            [strongSelf  af_setImageDownloadReceipt:nil forState:state];
                        }
                    }];
-
         [self af_setImageDownloadReceipt:receipt forState:state];
     }
 }
